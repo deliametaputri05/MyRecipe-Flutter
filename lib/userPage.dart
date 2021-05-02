@@ -1,28 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'food_user/explore.dart';
 
 class UserPage extends StatelessWidget {
   UserPage({this.username});
   final String username;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Welcome User"),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: GoogleFonts.montserratTextTheme(),
       ),
-      body: Column(
-        children: <Widget>[
-          Text(
-            'Halo $username',
-            style: TextStyle(fontSize: 20.0),
-          ),
-          RaisedButton(
-            child: Text("Logout"),
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, '/MyHomePage');
-            },
-          )
-        ],
-      ),
+      debugShowCheckedModeBanner: false,
+      home: Explore(),
     );
   }
 }

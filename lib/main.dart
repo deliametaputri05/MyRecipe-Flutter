@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         '/UserPage': (BuildContext context) => new UserPage(
               username: username,
             ),
-        '/MyHomePage': (BuildContext context) => new MyHomePage(),
+        '/Login': (BuildContext context) => new MyHomePage(),
       },
     );
   }
@@ -96,6 +96,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     return dataUser;
+  }
+
+  logout() async {
+    setState(() {
+      Navigator.pushReplacementNamed(context, '/Login');
+    });
   }
 
   @override
