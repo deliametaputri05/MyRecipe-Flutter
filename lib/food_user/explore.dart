@@ -3,6 +3,8 @@ import 'package:my_recipe/food_user/constants.dart';
 import 'package:my_recipe/food_user/data.dart';
 import 'package:my_recipe/food_user/detail.dart';
 import 'package:my_recipe/food_user/shared.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Explore extends StatefulWidget {
   @override
@@ -11,6 +13,26 @@ class Explore extends StatefulWidget {
 
 class _ExploreState extends State<Explore> {
   List<bool> optionSelected = [true, false, false];
+
+  Future logout(BuildContext context) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.remove('username');
+    Fluttertoast.showToast(
+        msg: "Logout Successful",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIos: 1,
+        backgroundColor: Colors.amber,
+        textColor: Colors.white,
+        fontSize: 16.0);
+    // Navigator.pushReplacement(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => MyHomePage(),
+    //   ),
+    // );
+    // Navigator.pushReplacementNamed(context, '/Login');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +48,7 @@ class _ExploreState extends State<Explore> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/Login');
+            logout(context);
           },
         ),
         actions: [
@@ -53,6 +75,12 @@ class _ExploreState extends State<Explore> {
                       'Healthy and nutritious food recipes'),
                   SizedBox(
                     height: 32,
+                  ),
+                  RaisedButton(
+                    child: Text("Logout"),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/Login');
+                    },
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
