@@ -3,10 +3,16 @@ import 'package:my_recipe/food_user/constants.dart';
 import 'package:my_recipe/food_user/data.dart';
 import 'package:my_recipe/food_user/detail.dart';
 import 'package:my_recipe/food_user/shared.dart';
+import 'package:my_recipe/login.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+// ignore: must_be_immutable
 class Explore extends StatefulWidget {
+  List list;
+  int index;
+  Explore({this.index, this.list});
   @override
   _ExploreState createState() => _ExploreState();
 }
@@ -25,12 +31,12 @@ class _ExploreState extends State<Explore> {
         backgroundColor: Colors.amber,
         textColor: Colors.white,
         fontSize: 16.0);
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => MyHomePage(),
-    //   ),
-    // );
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LoginPage(),
+      ),
+    );
     // Navigator.pushReplacementNamed(context, '/Login');
   }
 
@@ -72,35 +78,35 @@ class _ExploreState extends State<Explore> {
                 children: [
                   buildTextTitleVariation1('My Recipe'),
                   buildTextSubTitleVariation1(
-                      'Healthy and nutritious food recipes'),
+                      'Resep makanan sehat dan bergizi'),
                   SizedBox(
-                    height: 32,
+                    height: 2,
                   ),
-                  RaisedButton(
-                    child: Text("Logout"),
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/Login');
-                    },
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      option('Vegetable', 'assets/icons/salad.png', 0),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      option('Rice', 'assets/icons/rice.png', 1),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      option('Fruit', 'assets/icons/fruit.png', 2),
-                    ],
-                  ),
+                  // RaisedButton(
+                  //   child: Text("Logout"),
+                  //   onPressed: () {
+                  //     Navigator.pushReplacementNamed(context, '/Login');
+                  //   },
+                  // ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     option('Vegetable', 'assets/icons/salad.png', 0),
+                  //     SizedBox(
+                  //       width: 8,
+                  //     ),
+                  //     option('Rice', 'assets/icons/rice.png', 1),
+                  //     SizedBox(
+                  //       width: 8,
+                  //     ),
+                  //     option('Fruit', 'assets/icons/fruit.png', 2),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
             SizedBox(
-              height: 24,
+              height: 8,
             ),
             Container(
               height: 350,
@@ -290,7 +296,8 @@ class _ExploreState extends State<Explore> {
                     children: [
                       buildCalories(recipe.calories.toString() + " Kcal"),
                       Icon(
-                        Icons.favorite_border,
+                        Icons.favorite,
+                        color: Colors.red,
                       )
                     ],
                   ),

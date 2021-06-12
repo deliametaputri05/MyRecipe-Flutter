@@ -101,23 +101,8 @@ class Detail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  buildTextTitleVariation2('Alat', false),
-                  buildTextSubTitleVariation1(recipe.alat),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  buildTextTitleVariation2('Bahan', false),
-                  buildTextSubTitleVariation1(recipe.bahan),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  buildTextTitleVariation2('Cara Memasak', false),
-                  buildTextSubTitleVariation1("STEP 1"),
-                  buildTextSubTitleVariation1(recipe.prosedur1),
-                  buildTextSubTitleVariation1("STEP 2"),
-                  buildTextSubTitleVariation1(recipe.prosedur2),
-                  buildTextSubTitleVariation1("STEP 3"),
-                  buildTextSubTitleVariation1(recipe.prosedur3),
+                  buildTextTitleVariation2('Ingredients', false),
+                  buildTextTitleVariation2(recipe.prosedur1, true),
                 ],
               ),
             ),

@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Login Admin',
+      theme: ThemeData(
+        primaryColor: Colors.orange,
+      ),
       home: LauncherPage(),
       routes: <String, WidgetBuilder>{
         '/AdminPage': (BuildContext context) => new AdminPage(
